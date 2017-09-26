@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Item } from 'semantic-ui-react'
 import ActionButton from './ActionButton'
 
+import '../stylesheets/MenuItem.css'
+
 
 const MenuItem = () => (
     <Container>
@@ -11,13 +13,13 @@ const MenuItem = () => (
             <Item.Content>
                 <Item.Header>French Fries</Item.Header>
                 <Item.Meta  >
-ta                  <span className='price'>EGP 200</span>
+               <span className='price'>EGP 200</span>
                 </Item.Meta>
                 <Item.Description>Custom premium cut by farm frites. Add melted cheese for 7LE - chili con carne for 9LE</Item.Description>
             </Item.Content>
-            <Item.Content >
+            <span className='float-right' >
                 <ActionButton/>
-            </Item.Content>
+            </span>
         </Item>
 
         <Item>
@@ -29,9 +31,9 @@ ta                  <span className='price'>EGP 200</span>
                 </Item.Meta>
                 <Item.Description>Homemade crispy nacho chips served with fresh salsa dip</Item.Description>
             </Item.Content>
-            <Item.Content >
+            <span className='float-right' >
                 <ActionButton/>
-            </Item.Content>
+            </span>
         </Item>
 
 
