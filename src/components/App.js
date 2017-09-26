@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
-import './stylesheets/App.css';
+import logo from '../assets/logo.png';
+import '../stylesheets/App.css';
 
-import AddCategory from './components/AddCategory';
-import MenuItem from './components/MenuItem';
+import AddCategory from './AddCategory';
+import ElMenu from './ElMenu';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         </div>
         <div className="App-intro">
         <AddCategory/>
-        <MenuItem />
+        <ElMenu />
       </div>
       </div>
       
