@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Button, Divider, Form } from 'semantic-ui-react'
-import './AddCategory.css'
+import '../stylesheets/AddCategory.css'
 
 
 
