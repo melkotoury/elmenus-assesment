@@ -15,10 +15,10 @@ export default class ElMenu extends Component {
             <Grid>
                 <Grid.Column width={4}>
                     <Menu fluid vertical tabular>
-                        <Menu.Item name='appetizers' active={activeItem === 'appetizers'} onClick={this.handleItemClick} />
-                        <Menu.Item name='salads' active={activeItem === 'salads'} onClick={this.handleItemClick} />
-                        <Menu.Item name='main' active={activeItem === 'main'} onClick={this.handleItemClick} />
-                        <Menu.Item name='dessert' active={activeItem === 'dessert'} onClick={this.handleItemClick} />
+                        <Menu.Item name='appetizers' active={activeItem === 'appetizers'} onClick={this.handleItemClick}  content = "Appetizers"  />
+                        <Menu.Item name='salads' active={activeItem === 'salads'} onClick={this.handleItemClick} content= "Salads"/>
+                        <Menu.Item name='main' active={activeItem === 'main'} onClick={this.handleItemClick} content ="Main Course" />
+                        <Menu.Item name='dessert' active={activeItem === 'dessert'} onClick={this.handleItemClick} content = "Desserts"/>
                     </Menu>
                 </Grid.Column>
 

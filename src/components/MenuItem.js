@@ -1,6 +1,8 @@
 import React from 'react'
-import { Container, Item } from 'semantic-ui-react'
+import { Container, Item , Button  } from 'semantic-ui-react'
 import ActionButton from './ActionButton'
+
+import ModalAddItem from './ModalAddItem'
 
 import '../stylesheets/MenuItem.css'
 
@@ -8,8 +10,10 @@ import '../stylesheets/MenuItem.css'
 const MenuItem = () => (
     <Container>
     <Item.Group>
-        <Item>
 
+        <ModalAddItem/>
+
+        <Item>
             <Item.Content>
                 <Item.Header>French Fries</Item.Header>
                 <Item.Meta  >
