@@ -1,0 +1,15 @@
+.ui.styled.accordion {
+    width: 100%;
+}
+
+.ui.divided.list>.item {
+    margin-top: 10px;
+}
+
+.ui.divided.list .list>.item:first-child, .ui.divided.list>.item:first-child {
+    padding: 0;
+}
+
+.ui.divided.list>.item {
+    padding-top: 10px;
+}
