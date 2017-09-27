@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 import '../stylesheets/App.css'
 
 import AddCategory from './AddCategory'
-import ElMenu from './ElMenu'
+import ElMenu from './menu/ElMenu'
 import ModalLoginButton from './login/ModalLoginButton'
 
 
