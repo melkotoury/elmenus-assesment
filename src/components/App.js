@@ -6,6 +6,7 @@ import AddCategory from './AddCategory'
 import ElMenu from './ElMenu'
 import ModalLoginButton from './login/ModalLoginButton'
 
+
 class App extends Component {
   render() {
     return (
@@ -18,6 +19,8 @@ class App extends Component {
         <div className="App-intro">
         <AddCategory/>
         <ElMenu />
+
+
       </div>
       </div>
       
