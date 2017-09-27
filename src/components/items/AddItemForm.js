@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Button } from 'semantic-ui-react'
+import { Form, Input, TextArea } from 'semantic-ui-react'
 
 const AddItemForm = () => (
     <Form>

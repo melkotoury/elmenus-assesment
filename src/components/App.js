@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import logo from '../assets/logo.png';
-import '../stylesheets/App.css';
+import React, { Component } from 'react'
+import logo from '../assets/logo.png'
+import '../stylesheets/App.css'
 
-import AddCategory from './AddCategory';
-import ElMenu from './ElMenu';
+import AddCategory from './AddCategory'
+import ElMenu from './ElMenu'
+import ModalLoginButton from './login/ModalLoginButton'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Elmenus</h2>
+            <ModalLoginButton/>
         </div>
         <div className="App-intro">
         <AddCategory/>

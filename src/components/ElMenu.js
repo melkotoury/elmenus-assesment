@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Menu, Segment } from 'semantic-ui-react'
 
-import MenuItem from './MenuItem'
+import MenuItem from './items/MenuItem'
 
 export default class ElMenu extends Component {
     state = { activeItem: 'appetizers' }
