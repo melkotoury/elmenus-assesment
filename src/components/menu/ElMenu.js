@@ -7,9 +7,9 @@ import {fetchMenu} from '../../actions/menu'
 
 class ElMenu extends Component {
 
-    componentDidMount(){
-        this.props.fetchMenu();
-    }
+    // componentDidMount(){
+    //     this.props.fetchMenu();
+    // }
     render() {
         return (
             <MenuList menu = {this.props.menu} />

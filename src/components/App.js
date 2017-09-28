@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from '../assets/logo.png'
 import '../stylesheets/App.css'
 
-import AddCategory from './AddCategory'
+import AddCategory from './menu/AddCategory'
 import ElMenu from './menu/ElMenu'
 import ModalLoginButton from './login/ModalLoginButton'
 
