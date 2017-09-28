@@ -8,6 +8,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import 'semantic-ui-css/semantic.min.css'
 import './stylesheets/index.css'
 import App from './components/App'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker'
 
 
@@ -23,8 +24,14 @@ const store = createStore(
 
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>
+    <Router>
+        <Provider store={store}>
+        <Route exact path='/' component={App} />
+        </Provider>
+
+    </Router>
+    // <Provider store={store}>
+    //     <App/>
+    // </Provider>
     , document.getElementById('root'));
 registerServiceWorker();
