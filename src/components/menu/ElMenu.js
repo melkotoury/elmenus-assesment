@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import MenuList from './MenuList'
 
-import {connect} from 'react-redux'
-import {fetchMenu} from '../../actions/menu'
+// import {connect} from 'react-redux'
+// import {fetchMenu} from '../../actions/menu'
 
 class ElMenu extends Component {
 
@@ -12,21 +12,23 @@ class ElMenu extends Component {
     // }
     render() {
         return (
-            <MenuList menu = {this.props.menu} />
+            <MenuList  />
             );
 
     }
 }
+//            <MenuList menu = {this.props.menu} />
 
-ElMenu.propTypes = {
-    menu:      PropTypes.array.isRequired,
-    fetchMenu: PropTypes.func.isRequired
-}
+// ElMenu.propTypes = {
+//     menu:      PropTypes.array.isRequired,
+//     fetchMenu: PropTypes.func.isRequired
+// }
+//
+// function mapStateToProps(state) {
+//     return {
+//         menu: state.menu
+//     }
+// }
 
-function mapStateToProps(state) {
-    return {
-        menu: state.menu
-    }
-}
-
-export default connect(mapStateToProps , {fetchMenu})(ElMenu)
+// export default connect(mapStateToProps , {fetchMenu})(ElMenu)
+export default ElMenu
