@@ -10,6 +10,40 @@ class AddCategory extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.addCategoryService = new CategoryService();
     }
+
+    handleAppearance(){
+        if (this.props.role === 'admin'){
+            return (
+                <Form size='tiny' key='tiny' >
+                    <Grid>
+                        <Grid.Row columns={3}>
+                            <Grid.Column>
+                                <input
+                                    ref={(category_name) => this.category_name = category_name}
+                                    type='text'
+                                    placeholder='English Name'
+                                />
+                            </Grid.Column>
+                            <Grid.Column>
+                                <input
+                                    ref={(category_description) => this.category_description = category_description}
+                                    type='text'
+                                    placeholder='English Description'
+                                />
+                            </Grid.Column>
+                            <Grid.Column>
+                                <Button positive fluid  onClick={this.handleClick}>Create Category</Button>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                    <Divider hidden />
+                </Form>
+            );
+        }else{
+            return '';
+        }
+
+    }
     handleClick(event) {
         let category_name        = this.category_name.value;
         let category_description = this.category_description.value;
@@ -24,30 +58,7 @@ class AddCategory extends Component {
     render() {
             return (
                 <div className='createCategoryForm'>
-                    <Form size='tiny' key='tiny' >
-                        <Grid>
-                            <Grid.Row columns={3}>
-                                <Grid.Column>
-                                    <input 
-                                        ref={(category_name) => this.category_name = category_name} 
-                                        type='text'   
-                                        placeholder='English Name' 
-                                    />
-                                 </Grid.Column>
-                                 <Grid.Column>
-                                    <input 
-                                        ref={(category_description) => this.category_description = category_description} 
-                                        type='text'  
-                                        placeholder='English Description'
-                                     />
-                                 </Grid.Column>
-                                 <Grid.Column>
-                                    <Button positive fluid  onClick={this.handleClick}>Create Category</Button>
-                                 </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
-                        <Divider hidden />
-                    </Form>
+                    {this.handleAppearance()}
                 </div>
     );
 }

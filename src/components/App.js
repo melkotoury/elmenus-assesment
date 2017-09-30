@@ -14,10 +14,10 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Elmenus</h2>
-            <ModalLoginButton/>
+            <ModalLoginButton isLoggedIn={true} />
         </div>
         <div className="App-intro">
-        <AddCategory/>
+            <AddCategory role='admin' > </AddCategory>
         <ElMenu />
 
 
