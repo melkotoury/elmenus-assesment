@@ -33,7 +33,7 @@ class ModalLoginButton extends Component {
                         <LoginForm/>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='red' onclick={this.handleCancel}>
+                        <Button color='red' onClick={this.handleCancel}>
                             <Icon name='remove' /> Cancel
                         </Button>
                         <Button color='green' onClick={this.handleLogin}>
