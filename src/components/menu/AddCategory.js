@@ -1,14 +1,24 @@
 import React , {Component} from 'react'
 import { Grid, Button, Divider, Form } from 'semantic-ui-react'
+import CategoryService from '../../services/CategoryService'
 import '../../stylesheets/AddCategory.css'
+
+
 class AddCategory extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.addCategoryService = new CategoryService();
     }
     handleClick(event) {
-        alert('A name was submitted: ' + this.category_name.value);
-        console.log('A description ' + this.category_description.value);
+        let category_name        = this.category_name.value;
+        let category_description = this.category_description.value;
+        let value = {
+                category_name:category_name,
+                category_description:category_description
+        }
+        console.log(value);
+         this.addCategoryService.sendData(value);
         event.preventDefault();
     }
     render() {
@@ -28,7 +38,7 @@ class AddCategory extends Component {
                                     <input 
                                         ref={(category_description) => this.category_description = category_description} 
                                         type='text'  
-                                        placeholder='English Name'
+                                        placeholder='English Description'
                                      />
                                  </Grid.Column>
                                  <Grid.Column>
