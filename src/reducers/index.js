@@ -8,8 +8,7 @@ import MenuReducer from './menu_category'
 **/
 
  const allReducers = combineReducers({
-    users: UserReducer,
-    menu: MenuReducer
+    users: UserReducer
 });
 
 export default allReducers;
