@@ -17,7 +17,7 @@ class App extends Component {
             <ModalLoginButton isLoggedIn={false} />
         </div>
         <div className="App-intro">
-            <AddCategory role='admin'> </AddCategory>
+            <AddCategory userRole='admin'> </AddCategory>
             <ElMenu />
 
 

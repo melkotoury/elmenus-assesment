@@ -12,7 +12,7 @@ class AddCategory extends Component {
     }
 
     handleAppearance(){
-        if (this.props.role === 'admin'){
+        if (this.props.userRole === 'admin'){
             return (
                 <Form size='tiny' key='tiny' >
                     <Grid>
@@ -51,7 +51,7 @@ class AddCategory extends Component {
                 category_name:category_name,
                 category_description:category_description
         }
-        console.log(value);
+
          this.addCategoryService.sendData(value);
         event.preventDefault();
     }
