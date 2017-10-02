@@ -12,7 +12,7 @@ class AddCategory extends Component {
     }
 
     handleAppearance(){
-        if (this.props.userRole === 'admin'){
+        if (this.props.isAdmin === true){
             return (
                 <Form size='tiny' key='tiny' >
                     <Grid>

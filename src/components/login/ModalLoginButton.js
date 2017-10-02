@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { Button  , Header, Icon, Modal , Form } from 'semantic-ui-react'
 import UserList from '../../containers/userList'
 import LoginError from '../errors/login'
+import PropTypes from 'prop-types';
 
 
 
@@ -10,62 +11,20 @@ class ModalLoginButton extends Component {
     constructor(props) {
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
-        this.state = {
-            username: '',
-            isLoggedIn : false,
-            isAdmin: false,
-            errors:{}
-        }
+        this.isLoggedIn = this.isLoggedIn.bind(this);
+
     }
 
     handleLogin(){
+
         let username = this.username.value;
         let password = this.password.value;
-        return this.props.users.map((user) => {
-            if (username === user.username && password === user.password && user.role === 'admin')
-            {
-                this.setState({
-                    username:user.username,
-                    isLoggedIn:true,
-                    isAdmin:true,
-                    errors:['']
-                });
+        let user = {
+            username: username,
+            password:password
+        }
 
-
-
-            }else if(username === user.username && password === user.password && user.role !== 'admin')
-            {
-                this.setState({
-                    username:user.username,
-                    isLoggedIn:true,
-                    isAdmin:false,
-                    errors:['']
-                });
-            }else if(username !== user.username && password === user.password )
-            {
-                this.setState({
-                    errors:{username:'Username is not valid'},
-                });
-            }else if(username === user.username && password !== user.password )
-            {
-                this.setState({
-                    errors:{password:'Password is not valid'},
-                });
-            }else if(username !== user.username && password !== user.password )
-            {
-                this.setState({
-                    errors:{username:'Username is not valid',password:'Password is not valid'},
-                });
-            }
-            else
-            {
-                this.setState({
-                    errors:{username:'Username is not valid',password:'Password is not valid'},
-                });
-            }
-
-            return '';
-        });
+        this.props.login(user);
 
 
     }
@@ -74,8 +33,9 @@ class ModalLoginButton extends Component {
 
 
     isLoggedIn(){
-        if (this.state.isLoggedIn === true){
-            return 'Welcome ' + this.state.username;
+
+        if (this.props.isLoggedIn === true){
+            return 'Welcome ' + this.props.username;
         }else{
             return (
 
@@ -96,7 +56,7 @@ class ModalLoginButton extends Component {
                                     placeholder='password' />
                             </Form.Group>
 
-                            <LoginError errors={this.state.errors}/>
+                            <LoginError errors={this.props.errors}/>
 
                         </Form>
 
@@ -137,7 +97,9 @@ function mapStateToProps(state) {
 }
 
 
-
+ModalLoginButton.propTypes = {
+    login: PropTypes.func.isRequired
+}
 
 
 export default connect(mapStateToProps)(ModalLoginButton);
