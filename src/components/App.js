@@ -87,7 +87,7 @@ class App extends Component {
                 </div>
                 <div className="App-intro">
                     <AddCategory isAdmin={this.state.isAdmin} />
-                    <ElMenu />
+                    <ElMenu isAdmin={this.state.isAdmin}/>
 
 
                 </div>

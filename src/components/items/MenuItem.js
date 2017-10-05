@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{Component} from 'react'
 import { Container, Item  } from 'semantic-ui-react'
 import ActionButton from './ActionButton'
 
@@ -7,11 +7,45 @@ import ModalAddItem from './ModalAddItemButton'
 import '../../stylesheets/MenuItem.css'
 
 
-const MenuItem = () => (
-    <Container>
-    <Item.Group>
+class MenuItem extends Component {
+    constructor() {
+        super();
+        this.handleAddItemAppearance = this.handleAddItemAppearance.bind(this);
+        this.handleActionButtonsAppearance = this.handleActionButtonsAppearance.bind(this);
+    }
 
-        <ModalAddItem/>
+
+    handleAddItemAppearance(){
+                if (this.props.isAdmin) {
+
+            return (
+        <ModalAddItem  />
+                );
+
+        } else {
+            return '';
+        }
+    }
+
+
+
+    handleActionButtonsAppearance(){
+        if (this.props.isAdmin) {
+            return(
+                <ActionButton/>
+                );
+        } else {
+            return '';
+        }
+    }
+    render(){
+
+        return(
+            <Container>
+    <Item.Group>
+            <div>
+                {this.handleAddItemAppearance()}
+            </div>
 
         <Item>
             <Item.Content>
@@ -22,7 +56,7 @@ const MenuItem = () => (
                 <Item.Description>Custom premium cut by farm frites. Add melted cheese for 7LE - chili con carne for 9LE</Item.Description>
             </Item.Content>
             <span className='float-right' >
-                <ActionButton/>
+                <div>{this.handleActionButtonsAppearance()}</div>
             </span>
         </Item>
 
@@ -36,13 +70,19 @@ const MenuItem = () => (
                 <Item.Description>Homemade crispy nacho chips served with fresh salsa dip</Item.Description>
             </Item.Content>
             <span className='float-right' >
-                <ActionButton/>
+                <div>{this.handleActionButtonsAppearance()}</div>
             </span>
         </Item>
 
 
     </Item.Group>
     </Container>
-)
+            );
+        
+    }
+}
+
+
+
 
 export default MenuItem

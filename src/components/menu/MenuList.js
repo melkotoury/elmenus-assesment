@@ -24,7 +24,7 @@ export default class MenuList extends Component {
 
                 <Grid.Column stretched width={12}>
                     <Segment>
-                        <MenuItem/>
+                        <MenuItem isAdmin={this.props.isAdmin}/>
                     </Segment>
                 </Grid.Column>
             </Grid>

@@ -7,7 +7,7 @@ class ElMenu extends Component {
 
     render() {
         return (
-            <MenuList  />
+            <MenuList  isAdmin={this.props.isAdmin}/>
             );
 
     }
