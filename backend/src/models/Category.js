@@ -1,17 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// Define collection and schema for Category
+// Define collection and schema for Categories
 var Category = new Schema({
-    english_name: {
-        type: String
-    },
-    english_description:{
-        type: String
-    },
+  category_name: {
+    type: String
+  },
+  category_description: {
+    type: String
+  },
 
 },{
-    collection: 'categories'
+	collection: 'Categories'
 });
 
 module.exports = mongoose.model('Category', Category);

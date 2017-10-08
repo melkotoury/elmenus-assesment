@@ -7,8 +7,19 @@ import '../../stylesheets/AddCategory.css'
 class AddCategory extends Component {
     constructor(props) {
         super(props);
+        this.state = {category_name: '' , category_description : ''}
         this.handleClick = this.handleClick.bind(this);
+        this.handleCategoryNameChange = this.handleCategoryNameChange.bind(this);
+        this.handleCategoryDescriptionChange = this.handleCategoryDescriptionChange.bind(this);
         this.addCategoryService = new CategoryService();
+    }
+
+    handleCategoryNameChange(event){
+        this.setState({category_name:event.target.value});
+    }
+
+    handleCategoryDescriptionChange(event){
+        this.setState({category_description:event.target.value});
     }
 
     handleAppearance(){
@@ -22,6 +33,8 @@ class AddCategory extends Component {
                                     ref={(category_name) => this.category_name = category_name}
                                     type='text'
                                     placeholder='English Name'
+                                    value={this.state.category_name}
+                                    onChange= {this.handleCategoryNameChange}
                                 />
                             </Grid.Column>
                             <Grid.Column>
@@ -29,6 +42,8 @@ class AddCategory extends Component {
                                     ref={(category_description) => this.category_description = category_description}
                                     type='text'
                                     placeholder='English Description'
+                                    value={this.state.category_description}
+                                    onChange= {this.handleCategoryDescriptionChange}
                                 />
                             </Grid.Column>
                             <Grid.Column>
@@ -45,15 +60,19 @@ class AddCategory extends Component {
 
     }
     handleClick(event) {
-        let category_name        = this.category_name.value;
-        let category_description = this.category_description.value;
-        let value = {
-                category_name:category_name,
-                category_description:category_description
-        }
+        // let category_name        = this.category_name.value;
+        // let category_description = this.category_description.value;
+         let value = {
+                 category_name:this.state.category_name,
+                 category_description:this.state.category_description
+         }
 
-         this.addCategoryService.sendData(value);
-        event.preventDefault();
+    
+        this.addCategoryService.sendData(value);
+        this.category_name.value = '';
+        this.category_description.value = '';
+
+        
     }
     render() {
             return (
