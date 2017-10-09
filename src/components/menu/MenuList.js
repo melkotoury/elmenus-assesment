@@ -4,12 +4,13 @@ import CategoryService from '../../services/CategoryService'
 import axios from 'axios'
 
 import MenuItem from '../items/MenuItem'
+import CategoryList from './CategoryList'
 
  class MenuList extends Component {
      constructor(props){
          super();
-         this.state = { activeItem: 'appetizers', categories: '' };
-         this.handleItemClick = this.handleItemClick.bind(this);
+         this.state = {  categories: '' };
+         this.renderCategories = this.renderCategories.bind(this);
          this.addCategoryService = new CategoryService();
          
      }
@@ -18,8 +19,6 @@ import MenuItem from '../items/MenuItem'
         axios.get('http://localhost:4200/categories')
         .then(response => {
           this.setState({ categories: response.data });
-          console.log("Inside category Will Mount");
-          console.log(this.state.categories);
         })
         .catch(function (error) {
           console.log(error);
@@ -29,18 +28,15 @@ import MenuItem from '../items/MenuItem'
 
       renderCategories(){
         if(this.state.categories instanceof Array){
+           let activeItem = this.state.activeItem;
           return this.state.categories.map(function(object, i){
-              console.log("Object");
-              console.log(object.category_name);
-              return <Menu.Item  key={i} name={object.category}   content = {object.category}   />;
+              return <CategoryList obj={object} key={i} id={i.toString()} />;
           })
         }
       }
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     render() {
-        const { activeItem } = this.state
 
         return (
             <Grid>

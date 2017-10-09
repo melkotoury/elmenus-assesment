@@ -7,7 +7,7 @@ class CategoryService{
             category_name: data.category_name,
             category_description: data.category_description
         })
-            .then(res => this.setState({ categories: res.data }))
+            .then()
             .catch(err => console.log(err))
     }
 
@@ -15,7 +15,7 @@ class CategoryService{
         axios.post('http://localhost:4200/categories/update/'+id, {
             item: data
         })
-            .then(res => this.setState({ categories: res.data }))
+            .then()
             .catch(err => console.log(err))
     }
 
