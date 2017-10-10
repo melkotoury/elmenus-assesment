@@ -6,32 +6,52 @@ import { Menu } from 'semantic-ui-react'
 class CategoryList extends Component {
     constructor(props){
         super();
-        this.state = {activeItem: '0'}             
+        this.state = {activeTab: 'tab0',isSelected : false}             
         this.handleItemClick = this.handleItemClick.bind(this); 
-        this.handleActive = this.handleActive.bind(this); 
+        this.toggleSelected = this.toggleSelected.bind(this);
     }
 
-    handleActive(event) {
-        console.log(event.target.name);
-        if(this.state.activeItem === event.target.name){
-            return event.target.name;
-        }else{
-            return '';
+    toggleSelected() {
+        if (this.state.isSelected === true) {
+            this.setState({
+                isSelected: false
+            })
+        }else {
+            this.setState({
+                isSelected: true
+            })
         }
     }
-        
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-    
+    handleItemClick(e,name) {
+        this.setState({activeTab : 'tab'+this.props.id ,isSelected:true});
+        this.toggleSelected();
+        let tab = 'tab'+this.activeTab;
+        
+        
+        var unboundForEach = Array.prototype.forEach,
+            forEach = Function.prototype.call.bind(unboundForEach);
+
+        forEach(document.querySelectorAll('a.item'), function (el) {
+            console.log(tab);
+            console.log(el.classList.contains(tab));
+            if ( el.classList.contains('active') && !el.classList.contains(tab)  ) {
+                el.classList.remove('active');
+                
+            }
+        });
+    }
+
 
     render(){
-        const  {activeItem}  = this.state
-        console.log(' Props');
-        console.log(this.props);
+        const  {activeTab}  = this.state
         return (
-            <Menu.Item name={this.props.id} active={activeItem === this.handleActive } onClick={this.handleItemClick}  content = {this.props.obj.category_name}  />
+             
+                <Menu.Item className={'tab'+this.props.id}  name={this.props.id} active={activeTab === 'tab'+this.props.id || this.state.isSelected} onClick={this.handleItemClick}  content = {this.props.obj.category_name}  />
+            
         );
     }
 }
+
 
 export default CategoryList;
