@@ -35,7 +35,7 @@ class CategoryList extends Component {
         forEach(document.querySelectorAll('a.item'), function (el) {
             console.log(tab);
             console.log(el.classList.contains(tab));
-            if ( el.classList.contains('active') && !el.classList.contains(tab)  ) {
+            if ( el.classList.contains('active') ) {
                 el.classList.remove('active');
                 
             }
