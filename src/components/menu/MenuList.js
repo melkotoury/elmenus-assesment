@@ -28,7 +28,6 @@ import CategoryList from './CategoryList'
 
       renderCategories(){
         if(this.state.categories instanceof Array){
-           let activeItem = this.state.activeItem;
           return this.state.categories.map(function(object, i){
               return <CategoryList obj={object} key={i} id={i.toString()} />;
           })
