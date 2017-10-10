@@ -9,40 +9,11 @@ import CategoryList from './CategoryList'
  class MenuList extends Component {
      constructor(props){
          super();
-
-         this.state = {activeTab: 'tab0',isSelected : false,categories:''}             
-         this.handleItemClick = this.handleItemClick.bind(this); 
-         this.toggleSelected = this.toggleSelected.bind(this);
+         this.state = {  categories: '' };
          this.renderCategories = this.renderCategories.bind(this);
          this.addCategoryService = new CategoryService();
          
      }
-     toggleSelected() {
-        if (this.state.isSelected === true) {
-            this.setState({
-                isSelected: false
-            })
-        }else {
-            this.setState({
-                isSelected: true
-            })
-        }
-    }
-
-    handleItemClick(e,name) {
-        this.setState({activeTab : 'tab'+this.props.id });
-        this.toggleSelected();
-        
-        var unboundForEach = Array.prototype.forEach,
-            forEach = Function.prototype.call.bind(unboundForEach);
-
-        forEach(document.querySelectorAll('a.item'), function (el) {
-            if ( el.classList.contains('active') ) {
-                el.classList.remove('active');
-                
-            }
-        });
-    }
 
      componentWillMount(){
         axios.get('http://localhost:4200/categories')
@@ -56,13 +27,10 @@ import CategoryList from './CategoryList'
 
 
       renderCategories(){
-        const  {activeTab}  = this.state
-        
         if(this.state.categories instanceof Array){
+           let activeItem = this.state.activeItem;
           return this.state.categories.map(function(object, i){
               return <CategoryList obj={object} key={i} id={i.toString()} />;
-                      <Menu.Item className={'tab'+i}  name={this.props.id} active={activeTab === 'tab'+i|| this.state.isSelected} onClick={this.handleItemClick}  content = {object.category_name}  />
-
           })
         }
       }
