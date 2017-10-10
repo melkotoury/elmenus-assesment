@@ -9,7 +9,7 @@ import CategoryList from './CategoryList'
  class MenuList extends Component {
      constructor(props){
          super();
-         this.state = {  categories: '' };
+         this.state = { categories: '', activeCategory: 0};
          this.renderCategories = this.renderCategories.bind(this);
          this.addCategoryService = new CategoryService();
          
@@ -25,15 +25,18 @@ import CategoryList from './CategoryList'
         })
       }
 
+      handleItemClick(i) {
+        this.setState({...this.state,activeCategory: i})
+        }
+
 
       renderCategories(){
         if(this.state.categories instanceof Array){
-           let activeItem = this.state.activeItem;
-          return this.state.categories.map(function(object, i){
-              return <CategoryList obj={object} key={i} id={i.toString()} />;
-          })
+        return this.state.categories.map((object, i) => {
+        return <Menu.Item className={'tab' + i} name={i} active={i === this.state.activeCategory} onClick={() => this.handleItemClick(i)} content={object.category_name} />
+        })
         }
-      }
+        }
 
 
     render() {
