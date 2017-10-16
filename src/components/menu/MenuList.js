@@ -4,7 +4,6 @@ import CategoryService from '../../services/CategoryService'
 import axios from 'axios'
 
 import MenuItem from '../items/MenuItem'
-import CategoryList from './CategoryList'
 
  class MenuList extends Component {
      constructor(props){
@@ -33,7 +32,7 @@ import CategoryList from './CategoryList'
       renderCategories(){
         if(this.state.categories instanceof Array){
         return this.state.categories.map((object, i) => {
-        return <Menu.Item className={'tab' + i} name={i} active={i === this.state.activeCategory} onClick={() => this.handleItemClick(i)} content={object.category_name} />
+        return <Menu.Item key={i} className={'tab' + i} name={'tab' +i} active={i === this.state.activeCategory} onClick={() => this.handleItemClick(i)} content={object.category_name} />
         })
         }
         }

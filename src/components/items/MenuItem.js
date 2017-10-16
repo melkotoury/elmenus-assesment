@@ -19,7 +19,7 @@ class MenuItem extends Component {
                 if (this.props.isAdmin) {
 
             return (
-        <ModalAddItem  />
+            <ModalAddItem  />
                 );
 
         } else {
